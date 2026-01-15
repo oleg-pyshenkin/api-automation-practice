@@ -2,8 +2,8 @@ import requests
 from config import BASE_URL
 
 class PostClient:
-    def __init__(self):
-        self.url = f"{BASE_URL}/posts"
+    def __init__(self, base_url):
+        self.url = f"{base_url}/posts"
 
     def get_one(self, post_id):
         return requests.get(f"{self.url}/{post_id}")
@@ -19,3 +19,6 @@ class PostClient:
 
     def update (self, post_id, payload):
         return requests.put(f"{self.url}/{post_id}", json=payload)
+    
+    def get_comments(self, post_id):
+        return requests.get(f"{self.url}/{post_id}/comments")
