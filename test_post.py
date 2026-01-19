@@ -2,7 +2,7 @@ import allure
 import pytest
 from jsonschema import validate
 from schemas.post_schema import POST_SCHEMA
-
+from schemas.comment_schema import COMMENT_SCHEMA
 
 @allure.feature("Posts Management")
 @allure.story("CRUD operations for posts")
@@ -62,4 +62,4 @@ class TestPosts:
     def test_get_coments(self, post_client):
         response = post_client.get_comments(1)
         assert response.status_code == 200
-        assert len(response.json()) > 0
+        validate(instance=response.json(), schema=COMMENT_SCHEMA)
