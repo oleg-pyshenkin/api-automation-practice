@@ -1,4 +1,4 @@
-![Python API Tests](https://github.com/oleg-pyshenkin/api_automation_practice/actions/workflows/python-tests.yml/badge.svg)
+![Python API Tests](https://github.com/oleg-pyshenkin/api-automation-practice/actions/workflows/python-tests.yml/badge.svg)
 
 # API Automation Testing Project
 
