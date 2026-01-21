@@ -1,3 +1,5 @@
+![Python API Tests](https://github.com/oleg-pyshenkin/api_automation_practice/actions/workflows/python-tests.yml/badge.svg)
+
 # API Automation Testing Project
 
 This project contains automated tests for the JSONPlaceholder API.
