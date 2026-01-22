@@ -63,3 +63,10 @@ class TestPosts:
         response = post_client.get_comments(1)
         assert response.status_code == 200
         validate(instance=response.json(), schema=COMMENT_SCHEMA)
+
+    @pytest.mark.xfail(reason="API does not validate data types yet")
+    @allure.title("Test case #10: Create post with invalid userId type")
+    def test_create_post_invalid_type(self, post_client):
+        payload = {"title" : "Test", "body" : "Test", "userID": "abc"}
+        response = post_client.create(payload)
+        assert response.status_code == 400, f"Expected 400 for bad data, but got {response.status_code}"
