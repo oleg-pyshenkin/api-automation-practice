@@ -33,9 +33,12 @@ class TestPosts:
         assert response.status_code == 200
         assert response.json()['title'] == "Updated Title"
 
-    @allure.title("Test case #5: Delete a post")
+    @allure.title("Test case #5: Delete a post (Dynamic)")
     def test_delete_post(self, post_client):
-        response = post_client.delete(1)
+        payload = {"title": "Delete Me", "body" : "Temporary", "userId" : 1}
+        temp_post = post_client.create(payload).json()
+        target_id = temp_post['id']
+        response = post_client.delete(target_id)
         assert response.status_code == 200
 
     @allure.title("Test case #6: Parametrized title check")
